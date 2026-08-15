@@ -1,0 +1,7 @@
+Journal:
+
+Phase 1: I made the itemName and itemValue attributes private because they are part of the VaultItem’s internal data. Making them private stops other classes from changing them directly. I used public getters so other parts of the program can still safely access the information.
+
+I made the constructor public so objects can be created outside of the VaultItem class. I also made toString() public so the object can be displayed as a readable string
+
+Overall, this shows encapsulation because the class protects its data and controls how other parts of the program can access it.
