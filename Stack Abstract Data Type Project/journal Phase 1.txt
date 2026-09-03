@@ -1,4 +1,4 @@
 
-Journal
+Journal Phase 2
 
-LIFO (Last-In, First-Out) is the correct behavior for an undo mechanism because the most recent action should be undone first. For example, if I type something, delete it, and then make another change, I would want to undo the most recent change before going back to the earlier actions. A stack uses LIFO, which makes it a good choice for an undo feature. FIFO (First-In, First-Out) would undo the oldest action first, which would not work the way a normal undo button is expected to work.
+If the user calls undo() when no changes have been made, there is nothing to undo. I handled this by checking if the undoStack is empty before removing anything from it. If the stack is empty, the method simply does nothing instead of causing an error.
