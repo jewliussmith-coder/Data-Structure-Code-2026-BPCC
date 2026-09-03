@@ -1,4 +1,5 @@
 
-Journal Phase 2
+Journal Phase 3
 
-If the user calls undo() when no changes have been made, there is nothing to undo. I handled this by checking if the undoStack is empty before removing anything from it. If the stack is empty, the method simply does nothing instead of causing an error.
+The redoStack must be cleared whenever the user makes a brand-new change because the old redo history is no longer valid. For example, if a user types "one," then "one two," undoes back to "one," and then types "one three," they have created a new editing path. Redoing "one two" would no longer make sense because it belongs to the old version of the text.
+
