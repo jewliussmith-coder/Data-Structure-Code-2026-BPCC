@@ -1,5 +1,5 @@
 
-Journal Phase 3
+Journal Phase 4
 
-The redoStack must be cleared whenever the user makes a brand-new change because the old redo history is no longer valid. For example, if a user types "one," then "one two," undoes back to "one," and then types "one three," they have created a new editing path. Redoing "one two" would no longer make sense because it belongs to the old version of the text.
+I started with an empty undoStack and redoStack. After typing "one," the undoStack contained [""]. After typing "one two," it contained ["", "one"], and after typing "one two three," it contained ["", "one", "one two"]. The first undo changed the current state to "one two" and moved "one two three" to the redoStack. The second undo changed the state to "one" and added "one two" to the redoStack. The redo restored "one two" and removed it from the redoStack. Finally, typing the new state "one two four" pushed "one two" onto the undoStack and cleared the redoStack. Therefore, the final redo attempt did nothing because there was no longer anything available to redo.
 
