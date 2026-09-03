@@ -1,25 +1,32 @@
 public class Main {
     public static void main(String[] args) {
 
-        Stack<String> stack = new Stack<>();
+        EditorHistory editor = new EditorHistory();
 
-        // Test isEmpty()
-        System.out.println("Is the stack empty? " + stack.isEmpty());
+        // Type three words
+        editor.makeChange("one");
+        editor.makeChange("one two");
+        editor.makeChange("one two three");
 
-        // Test push()
-        stack.push("First");
-        stack.push("Second");
-        stack.push("Third");
+        System.out.println("Current: " + editor.getCurrentState());
 
-        // Test peek()
-        System.out.println("Top item: " + stack.peek());
+        // Undo twice
+        editor.undo();
+        System.out.println("After first undo: " + editor.getCurrentState());
 
-        // Test pop() - LIFO
-        System.out.println("Popped: " + stack.pop());
-        System.out.println("Popped: " + stack.pop());
-        System.out.println("Popped: " + stack.pop());
+        editor.undo();
+        System.out.println("After second undo: " + editor.getCurrentState());
 
-        // Test isEmpty() again
-        System.out.println("Is the stack empty? " + stack.isEmpty());
+        // Redo once
+        editor.redo();
+        System.out.println("After redo: " + editor.getCurrentState());
+
+        // Type a new word
+        editor.makeChange("one two four");
+        System.out.println("After new change: " + editor.getCurrentState());
+
+        // Attempt to redo
+        editor.redo();
+        System.out.println("After attempting redo: " + editor.getCurrentState());
     }
 }
