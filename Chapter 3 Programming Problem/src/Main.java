@@ -37,9 +37,24 @@ public class Main {
         root.addItem(documents);
         root.addItem(pictures);
 
-        // Count all files (including the homework file)
+        // Phase 1: Count all files
         int totalFiles = FileSystemAnalyzer.countFilesRecursive(root);
 
         System.out.println("Total number of files: " + totalFiles);
+
+        // Phase 2: Calculate total storage
+        int totalSize = FileSystemAnalyzer.calculateTotalSizeRecursive(root);
+
+        System.out.println("Total storage: " + totalSize + " KB");
+
+        // Phase 2: Find the largest file
+        FileItem largestFile = FileSystemAnalyzer.findLargestFileRecursive(root);
+
+        if (largestFile != null) {
+            System.out.println("Largest file: " + largestFile.getName());
+            System.out.println("Largest file size: " + largestFile.getSizeInKB() + " KB");
+        } else {
+            System.out.println("No files found.");
+        }
     }
 }
