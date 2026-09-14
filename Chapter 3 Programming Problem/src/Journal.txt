@@ -1,6 +1,7 @@
 Journal
 
-Phase 3
+Phase 4
 
-I find the recursive solution more intuitive because it is shorter and naturally follows the structure of the file system. The iterative solution uses an explicit stack, which requires more code, but it avoids recursive call overhead and does not depend on the program's runtime call stack. Both approaches use extra space to keep track of folders that still need to be visited, but the stack version gives more direct control over that process. For this project, I would prefer the recursive version because I find it easier to read and maintain.
+If a folder contained a reference to itself or one of its ancestor folders, the recursive method could keep calling itself forever because the problem would never become smaller. This would eventually cause a StackOverflowError because the Java call stack would keep filling with recursive calls. The iterative stack method would also continue processing the same folders forever, causing an infinite loop and continually adding items to the stack. This relates to the Smaller-Caller rule because each recursive call is supposed to work on a smaller sub-problem, but a circular reference violates that rule by allowing the same folder to be visited repeatedly.
+
 
