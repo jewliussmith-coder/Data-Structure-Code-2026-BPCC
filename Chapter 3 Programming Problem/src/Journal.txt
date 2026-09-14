@@ -1,5 +1,6 @@
 Journal
 
-Phase 2
+Phase 3
 
-If a folder contains only empty subfolders, each recursive call eventually returns null because no FileItem is found. Returning null is an effective way to represent that no file was found in that branch. The general case checks childLargest != null before comparing sizes, so the program never tries to call getSizeInKB() on null and avoids a NullPointerException.
+I find the recursive solution more intuitive because it is shorter and naturally follows the structure of the file system. The iterative solution uses an explicit stack, which requires more code, but it avoids recursive call overhead and does not depend on the program's runtime call stack. Both approaches use extra space to keep track of folders that still need to be visited, but the stack version gives more direct control over that process. For this project, I would prefer the recursive version because I find it easier to read and maintain.
+
