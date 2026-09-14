@@ -1,5 +1,5 @@
 Journal
 
-Phase 1
+Phase 2
 
 If a folder contains only empty subfolders, each recursive call eventually returns null because no FileItem is found. Returning null is an effective way to represent that no file was found in that branch. The general case checks childLargest != null before comparing sizes, so the program never tries to call getSizeInKB() on null and avoids a NullPointerException.
