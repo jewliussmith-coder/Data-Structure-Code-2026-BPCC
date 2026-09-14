@@ -78,7 +78,7 @@ public class FileSystemAnalyzer {
         return null;
     }
 
-    // Phase 3: Count all files iteratively using a Stack
+    // Phase 3: Count files using an explicit stack
     public static int countFilesIterative(Folder rootFolder) {
 
         Stack<FileSystemItem> stack = new Stack<>();
@@ -106,8 +106,52 @@ public class FileSystemAnalyzer {
 
         return fileCount;
     }
-}
+
+    // Phase 4: Find a folder by name
+    public static Folder findFolder(Folder current, String targetName) {
+
+        // Check the current folder
+        if (current.getName().equalsIgnoreCase(targetName)) {
+            return current;
+        }
+
+        // Search through the current folder's items
+        for (FileSystemItem item : current.getItems()) {
+
+            if (item instanceof Folder) {
+                Folder foundFolder =
+                        findFolder((Folder) item, targetName);
+
+                if (foundFolder != null) {
+                    return foundFolder;
+                }
+            }
+        }
 
         return null;
+    }
+
+    // Phase 4: Print the file system hierarchy
+    public static void printHierarchy(FileSystemItem item, String indent) {
+
+        if (item instanceof Folder) {
+
+            Folder folder = (Folder) item;
+
+            System.out.println(indent + folder.getName() + "/");
+
+            for (FileSystemItem child : folder.getItems()) {
+                printHierarchy(child, indent + "  ");
+            }
+
+        } else if (item instanceof FileItem) {
+
+            FileItem file = (FileItem) item;
+
+            System.out.println(
+                    indent + file.getName()
+                            + " (" + file.getSizeInKB() + " KB)"
+            );
+        }
     }
 }
