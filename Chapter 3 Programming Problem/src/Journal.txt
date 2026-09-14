@@ -2,4 +2,4 @@ Journal
 
 Phase 1
 
-The base case is when the item is a FileItem, because it represents one file and the method returns 1. The general case is when the item is a Folder, where the method goes through each item inside the folder and recursively counts the files. Each recursive call works on a child item inside the current folder, which is a smaller part of the file system tree. Eventually, the method reaches a FileItem, which triggers the base case and stops the recursion.
+If a folder contains only empty subfolders, each recursive call eventually returns null because no FileItem is found. Returning null is an effective way to represent that no file was found in that branch. The general case checks childLargest != null before comparing sizes, so the program never tries to call getSizeInKB() on null and avoids a NullPointerException.
