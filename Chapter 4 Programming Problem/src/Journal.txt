@@ -1,3 +1,4 @@
-Phase 2
+Phase 3
 
-Re-enqueuing failed messages makes the system fair because a failed message is moved to the back of the queue instead of being processed repeatedly before other messages get a chance. This allows other messages to be processed first while the failed message waits for another attempt. Processing only the original batch size also prevents one message from taking over the entire queue.
+A poison message starts in the main queue with a retry count of 0. Each time processing fails, its retry count increases and it is moved to the back of the main queue. This allows other messages to be processed before it gets another attempt. Once the message reaches the maximum retry limit, it is removed from the main queue and placed into the Dead-Letter Queue. The message keeps its retry count and other information when it enters the DLQ, where it can be viewed and cleared.
+
