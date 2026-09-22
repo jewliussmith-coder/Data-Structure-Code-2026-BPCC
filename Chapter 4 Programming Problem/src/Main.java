@@ -1,24 +1,27 @@
 public class Main {
     public static void main(String[] args) {
-        LinkedQueue<Message> messageQueue = new LinkedQueue<>();
+        Broker broker = new Broker();
 
-        Message message1 = new Message("MSG001", "Hello World");
-        Message message2 = new Message("MSG002", "Process Payment");
-        Message message3 = new Message("MSG003", "Send Confirmation");
+        Message message1 = new Message("MSG001", "Hello World", 90);
+        Message message2 = new Message("MSG002", "Process Payment", 50);
+        Message message3 = new Message("MSG003", "Send Confirmation", 20);
+        Message message4 = new Message("MSG004", "Update Database", 0);
 
-        try {
-            messageQueue.enqueue(message1);
-            messageQueue.enqueue(message2);
-            messageQueue.enqueue(message3);
+        broker.addMessage(message1);
+        broker.addMessage(message2);
+        broker.addMessage(message3);
+        broker.addMessage(message4);
 
-            System.out.println("Dequeuing messages:");
+        System.out.println("Queue size before processing: " + broker.getQueueSize());
 
-            System.out.println(messageQueue.dequeue());
-            System.out.println(messageQueue.dequeue());
-            System.out.println(messageQueue.dequeue());
+        System.out.println("\nProcessing batch:");
+        broker.processBatch();
 
-        } catch (QueueOverflowException | QueueUnderflowException e) {
-            System.out.println("Queue error: " + e.getMessage());
-        }
+        System.out.println("\nQueue size after processing: " + broker.getQueueSize());
+
+        System.out.println("\nProcessing another batch:");
+        broker.processBatch();
+
+        System.out.println("\nQueue size after second batch: " + broker.getQueueSize());
     }
 }
