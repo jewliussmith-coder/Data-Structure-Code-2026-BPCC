@@ -1,11 +1,23 @@
 public class LinkedQueue<T> implements QueueInterface<T> {
 
-    private LLNode<T> front;
-    private LLNode<T> rear;
+    private class Node {
+        T data;
+        Node next;
+
+        Node(T data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    private Node front;
+    private Node rear;
+    private int count;
 
     public LinkedQueue() {
         front = null;
         rear = null;
+        count = 0;
     }
 
     @Override
@@ -19,16 +31,23 @@ public class LinkedQueue<T> implements QueueInterface<T> {
     }
 
     @Override
+    public int size() {
+        return count;
+    }
+
+    @Override
     public void enqueue(T element) throws QueueOverflowException {
-        LLNode<T> newNode = new LLNode<>(element);
+        Node newNode = new Node(element);
 
         if (isEmpty()) {
             front = newNode;
             rear = newNode;
         } else {
-            rear.setLink(newNode);
+            rear.next = newNode;
             rear = newNode;
         }
+
+        count++;
     }
 
     @Override
@@ -37,8 +56,9 @@ public class LinkedQueue<T> implements QueueInterface<T> {
             throw new QueueUnderflowException();
         }
 
-        T element = front.getInfo();
-        front = front.getLink();
+        T element = front.data;
+        front = front.next;
+        count--;
 
         if (front == null) {
             rear = null;
@@ -53,6 +73,6 @@ public class LinkedQueue<T> implements QueueInterface<T> {
             throw new QueueUnderflowException();
         }
 
-        return front.getInfo();
+        return front.data;
     }
 }
