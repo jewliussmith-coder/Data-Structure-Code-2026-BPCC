@@ -1,20 +1,23 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Main {
     public static void main(String[] args) {
-        LinkedCollection<Artifact> catalog = new LinkedCollection<>();
+        ArrayList<Artifact> museumList = new ArrayList<>();
 
-        catalog.add(new Artifact("A101", "Ancient Vase", "Ancient Greece"));
-        catalog.add(new Artifact("B205", "Medieval Sword", "Middle Ages"));
-        catalog.add(new Artifact("C309", "Renaissance Painting", "Renaissance"));
+        museumList.add(new Artifact("M04", "Ancient Coin", "Ancient Rome"));
+        museumList.add(new Artifact("A01", "Stone Tool", "Stone Age"));
+        museumList.add(new Artifact("Z99", "Modern Sculpture", "Modern"));
+        museumList.add(new Artifact("B12", "Medieval Shield", "Middle Ages"));
 
-        Artifact searchKey = new Artifact("B205", "", "");
+        System.out.println("Before sorting:");
+        for (Artifact artifact : museumList)
+            System.out.println(artifact);
 
-        System.out.println("Contains B205: " + catalog.contains(searchKey));
-        System.out.println("Found: " + catalog.get(searchKey));
+        Collections.sort(museumList);
 
-        catalog.remove(searchKey);
-
-        System.out.println("\nAfter removing B205:");
-        System.out.println("Collection size: " + catalog.size());
-        System.out.println(catalog);
+        System.out.println("\nAfter sorting:");
+        for (Artifact artifact : museumList)
+            System.out.println(artifact);
     }
 }
