@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        ArrayCollection<Artifact> catalog = new ArrayCollection<>();
+        LinkedCollection<Artifact> catalog = new LinkedCollection<>();
 
         catalog.add(new Artifact("A101", "Ancient Vase", "Ancient Greece"));
         catalog.add(new Artifact("B205", "Medieval Sword", "Middle Ages"));
