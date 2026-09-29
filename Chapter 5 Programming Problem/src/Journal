@@ -1,0 +1,2 @@
+Phase 1
+Overriding equals is important because Java’s default equality checks whether two objects are the exact same reference instead of comparing their contents. By comparing the id, the collection can find an artifact using a separate search key with the same ID. The “swap with last” technique is faster because it removes an item without shifting every item after it. Instead, the last item is moved into the removed item’s position, making the removal operation more efficient.
