@@ -1,4 +1,10 @@
-Phase 2
-A linked collection uses extra memory for each item because every node needs to store the item and a reference to the next node, while an array mainly stores the items in contiguous memory. Linked collections also have worse cache locality because nodes can be scattered throughout memory, whereas arrays keep their elements next to each other. The trade-off is that linked collections can grow dynamically and add items at the head in O(1) time without resizing an array.
+Phase 3
+The Comparable interface gives a custom class a natural ordering by defining how two objects should be compared through compareTo. Since Artifact compares its IDs, Java's sorting methods know how to arrange the artifacts. It is recommended that compareTo returns 0 when equals is true because both methods then agree that the two objects are considered equal, which makes collections and sorting behave more consistently.
+
+
+
+
+
+
 
 
