@@ -1,2 +1,4 @@
-Phase 1
-Overriding equals is important because Java’s default equality checks whether two objects are the exact same reference instead of comparing their contents. By comparing the id, the collection can find an artifact using a separate search key with the same ID. The “swap with last” technique is faster because it removes an item without shifting every item after it. Instead, the last item is moved into the removed item’s position, making the removal operation more efficient.
+Phase 2
+A linked collection uses extra memory for each item because every node needs to store the item and a reference to the next node, while an array mainly stores the items in contiguous memory. Linked collections also have worse cache locality because nodes can be scattered throughout memory, whereas arrays keep their elements next to each other. The trade-off is that linked collections can grow dynamically and add items at the head in O(1) time without resizing an array.
+
+
