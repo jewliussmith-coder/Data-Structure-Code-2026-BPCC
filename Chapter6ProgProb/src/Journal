@@ -7,3 +7,9 @@ Phase 2:
 In this phase, I implemented the Iterable interface and added a custom iterator with a remove() method to delete songs from the playlist.
 Unlinking a node updates the next pointer of the previous node to bypass the target element and point straight to the current node.
 This allows the iterator to securely delete items while keeping its place in the list via the already-advanced cursor.
+
+Phase 3:
+In this phase, I added methods to look up and insert songs at specific spots in the playlist.
+Both arrays and linked lists take some time to find a spot in the middle, but arrays are more expensive because they have to shift all the other items over in memory.
+A linked list just updates a couple of references (pointers) without needing to move anything else around.
+
