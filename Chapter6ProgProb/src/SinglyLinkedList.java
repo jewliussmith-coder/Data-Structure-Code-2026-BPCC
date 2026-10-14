@@ -3,7 +3,7 @@ import java.util.NoSuchElementException;
 
 public class SinglyLinkedList implements Iterable<Song> {
 
-    private class Node {
+    protected class Node {
         Song data;
         Node next;
 
@@ -13,8 +13,8 @@ public class SinglyLinkedList implements Iterable<Song> {
         }
     }
 
-    private Node head;
-    private Node tail;
+    protected Node head;
+    protected Node tail;
 
     public void addLast(Song song) {
         Node newNode = new Node(song);
