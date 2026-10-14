@@ -9,6 +9,18 @@ public class Song {
         this.duration = duration;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
     @Override
     public String toString() {
         return title + " by " + artist + " (" + duration + " seconds)";
