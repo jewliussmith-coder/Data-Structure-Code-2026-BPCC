@@ -13,3 +13,8 @@ In this phase, I added methods to look up and insert songs at specific spots in 
 Both arrays and linked lists take some time to find a spot in the middle, but arrays are more expensive because they have to shift all the other items over in memory.
 A linked list just updates a couple of references (pointers) without needing to move anything else around.
 
+Phase 4:
+In this phase, I created a SortedLinkedList that automatically puts songs in order as they are added using a Comparator.
+Using a separate class with a Comparator is much better than jamming an addSorted method into a regular list because it keeps the sorting logic separate from the list structure.
+This makes the code super flexible—you can easily make lists sorted by title, artist, or duration without having to rewrite or clutter your core list class.
+
