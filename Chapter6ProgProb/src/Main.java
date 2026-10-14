@@ -1,21 +1,23 @@
+import java.util.Comparator;
+
 public class Main {
     public static void main(String[] args) {
-        SinglyLinkedList playlist = new SinglyLinkedList();
+        // 1. Sorted by Title
+        SortedLinkedList titlePlaylist = new SortedLinkedList(Comparator.comparing(Song::getTitle));
+        titlePlaylist.add(new Song("September", "Earth, Wind & Fire", 215));
+        titlePlaylist.add(new Song("Smooth Criminal", "Michael Jackson", 258));
+        titlePlaylist.add(new Song("I'm Still Standing", "Elton John", 183));
 
-        playlist.addLast(new Song("September", "Earth, Wind & Fire", 215));
-        playlist.addLast(new Song("I'm Still Standing", "Elton John", 183));
-        playlist.addLast(new Song("Let's Groove", "Earth, Wind & Fire", 236));
+        System.out.println("--- Sorted by Title ---");
+        titlePlaylist.display();
 
-        System.out.println("--- Initial Playlist ---");
-        playlist.display();
+        // 2. Sorted by Artist
+        SortedLinkedList artistPlaylist = new SortedLinkedList(Comparator.comparing(Song::getArtist));
+        artistPlaylist.add(new Song("September", "Earth, Wind & Fire", 215));
+        titlePlaylist.add(new Song("Smooth Criminal", "Michael Jackson", 258));
+        artistPlaylist.add(new Song("I'm Still Standing", "Elton John", 183));
 
-        System.out.println("\n--- Testing get(1) ---");
-        System.out.println("Song at index 1: " + playlist.get(1));
-
-        System.out.println("\n--- Inserting 'Smooth Criminal' at index 1 ---");
-        playlist.add(1, new Song("Smooth Criminal", "Michael Jackson", 258));
-
-        System.out.println("\n--- Playlist After Positional Insertion ---");
-        playlist.display();
+        System.out.println("\n--- Sorted by Artist ---");
+        artistPlaylist.display();
     }
 }
