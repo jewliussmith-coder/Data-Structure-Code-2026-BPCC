@@ -1,0 +1,4 @@
+Phase 1:
+In this phase, I created a Song class and a SinglyLinkedList that can add songs to the end and display the playlist.
+A linked list stores elements in separate nodes that point to the next node, while an array stores elements in consecutive positions in memory.
+This means a linked list connects its elements using references instead of relying on indexes.
