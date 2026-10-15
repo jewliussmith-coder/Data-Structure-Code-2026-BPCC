@@ -18,3 +18,8 @@ In this phase, I created a SortedLinkedList that automatically puts songs in ord
 Using a separate class with a Comparator is much better than jamming an addSorted method into a regular list because it keeps the sorting logic separate from the list structure.
 This makes the code super flexible—you can easily make lists sorted by title, artist, or duration without having to rewrite or clutter your core list class.
 
+Phase 5:
+In this phase, while testing my linked list, the main bugs I encountered were NullPointerException errors caused by trying to access .next on nodes that were already null.
+I also had unexpected behaviors when handling edge cases like adding or removing elements at index 0 or at the very end of the list,
+where failing to properly update the head and tail pointers broke the chain for future operations.
+
