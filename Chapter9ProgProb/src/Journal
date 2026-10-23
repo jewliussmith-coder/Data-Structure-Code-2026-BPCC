@@ -1,0 +1,3 @@
+For Phase 1, I set up the basic structure of the Composite Pattern by making the InventoryComponent base class, the Item class, and a driver class to test everything out. InventoryComponent holds all the main methods like add(), remove(), getWeight(), and displayInfo(), and Item overrides the ones it actually needs to handle single items with a name and a weight.
+
+Instead of making all the methods abstract, InventoryComponent has default methods that throw an UnsupportedOperationException. This keeps leaf classes like Item from having to write useless code for container methods they do not use, and it lets the main program treat items and containers the exact same way without needing extra checks.
