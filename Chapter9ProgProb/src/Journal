@@ -1,3 +1,8 @@
 For Phase 1, I set up the basic structure of the Composite Pattern by making the InventoryComponent base class, the Item class, and a driver class to test everything out. InventoryComponent holds all the main methods like add(), remove(), getWeight(), and displayInfo(), and Item overrides the ones it actually needs to handle single items with a name and a weight.
 
 Instead of making all the methods abstract, InventoryComponent has default methods that throw an UnsupportedOperationException. This keeps leaf classes like Item from having to write useless code for container methods they do not use, and it lets the main program treat items and containers the exact same way without needing extra checks.
+
+
+For Phase 2, I built the Bag class which extends InventoryComponent to act as a container holding other items or bags. I gave it a name, a base weight, and a parameterized list of inventory components, along with methods for adding, removing, getting children, and recursively calculating total weight and displaying info.
+
+In an Item, getWeight just returns the set weight of that single item since it is a leaf. In a Bag, getWeight starts with its own base weight and loops through all its child components, calling getWeight on each one to add them up. Thanks to polymorphism and recursion, the bag treats every child as an InventoryComponent interface without needing to check if it is an Item or another Bag using instanceof, allowing it to handle any level of nesting automatically.
