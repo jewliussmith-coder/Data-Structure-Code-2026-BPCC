@@ -8,3 +8,8 @@ Once it hits an empty null spot, it drops in a brand-new node and uses clean re-
 The reason we have to bound our generic type with Comparable boils down to the fact that Java needs a universal way to evaluate relative sizes. 
 Since our tree is generic and can handle different data types, requiring Comparable guarantees that whatever we store in it actually knows how to compare itself. 
 That way, the tree can strictly enforce its core property, smaller values to the left, larger to the right, without running into errors.
+
+
+For Phase 2, I added the height method to the BinarySearchTree class along with a private recursive helper called recHeight, and then updated Main.java to call archive.height() and print out the result. For our sample dataset, it successfully calculated a height of 2, which matches the expected level depth where the root starts at zero.
+
+The height calculation works through recursion that checks every branch to find the longest one. When recHeight hits a null node, it returns negative one so that when the stack unwinds back to a leaf, the leaf's height becomes zero. As the recursion bubbles back up toward the root, it uses Math.max to compare the left and right subtree heights at each level, adds one to account for the current node, and ultimately passes the maximum depth of the deepest branch all the way back to the top.
