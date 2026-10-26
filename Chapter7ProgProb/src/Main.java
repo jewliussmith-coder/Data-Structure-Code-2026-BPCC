@@ -9,8 +9,7 @@ public class Main {
             archive.add(id);
         }
 
-        System.out.println(
-                "Archive initialized with sample IDs."
-        );
+        System.out.println("Archive initialized with sample IDs.");
+        System.out.println("Tree height: " + archive.height());
     }
 }
