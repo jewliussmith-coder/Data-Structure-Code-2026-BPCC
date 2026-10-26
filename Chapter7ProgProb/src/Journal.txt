@@ -1,0 +1,10 @@
+For Phase 1, I got the core foundation of the Binary Search Tree up and running by building the BSTNode and BinarySearchTree classes,
+and tested it all out with a dataset of accession IDs in Main.java. To get the insertion working smoothly,
+I used a recursive helper method (recAdd) that compares any new ID against the current node using .compareTo().
+If the value is smaller or equal, it navigates down the left subtree; if it's larger, it goes right. 
+Once it hits an empty null spot, it drops in a brand-new node and uses clean re-linking to snap it into place as the stack unwinds.
+
+
+The reason we have to bound our generic type with Comparable boils down to the fact that Java needs a universal way to evaluate relative sizes. 
+Since our tree is generic and can handle different data types, requiring Comparable guarantees that whatever we store in it actually knows how to compare itself. 
+That way, the tree can strictly enforce its core property, smaller values to the left, larger to the right, without running into errors.
