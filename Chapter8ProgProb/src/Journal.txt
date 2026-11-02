@@ -1,0 +1,6 @@
+Journal:
+
+Phase 1:
+In this phase, I created a Field Registry using a HashMap in Java. I added five different animal species and gave each one a population count. I also made a search feature that lets the user type in a species name and see its current population. If the species isn't in the registry, the program lets the user know.
+
+A HashMap works better for this task than an array or ArrayList because it connects each species name directly to its population. This makes it easier and faster to find specific information without searching through an entire list. It also keeps the information organized using key-value pairs.
