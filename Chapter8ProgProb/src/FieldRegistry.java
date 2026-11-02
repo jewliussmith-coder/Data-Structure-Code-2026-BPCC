@@ -1,8 +1,12 @@
 import java.util.HashMap;
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class FieldRegistry {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws FileNotFoundException {
+
 
         HashMap<String, Integer> speciesRegistry = new HashMap<>();
 
@@ -12,22 +16,46 @@ public class FieldRegistry {
         speciesRegistry.put("Giraffe", 275);
         speciesRegistry.put("Zebra", 600);
 
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a species name to check its population: ");
-        String species = scanner.nextLine();
+        Scanner fileScanner = new Scanner(new File("sightings.txt"));
 
-        Integer population = speciesRegistry.get(species);
+        while (fileScanner.hasNextLine()) {
+
+            String species = fileScanner.nextLine().trim();
 
 
-        if (population != null) {
-            System.out.println(species + " currently has a population of "
-                    + population + ".");
-        } else {
-            System.out.println("Sorry, " + species
-                    + " is not currently in the registry.");
+            if (species.isEmpty()) {
+                continue;
+            }
+
+
+            if (speciesRegistry.containsKey(species)) {
+
+
+                speciesRegistry.put(
+                        species,
+                        speciesRegistry.get(species) + 1
+                );
+
+            } else {
+
+
+                speciesRegistry.put(species, 1);
+            }
         }
 
-        scanner.close();
+        fileScanner.close();
+
+        System.out.println("=== FIELD REGISTRY ====");
+        System.out.println("Updated Species Populations:");
+
+        for (String species : speciesRegistry.keySet()) {
+            System.out.println(
+                    species + ": " + speciesRegistry.get(species)
+            );
+        }
+
+        System.out.println("=========");
     }
 }
+
