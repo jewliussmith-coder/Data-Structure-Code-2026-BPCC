@@ -28,8 +28,8 @@ public class FieldRegistry {
             if (speciesRegistry.containsKey(species)) {
 
                 speciesRegistry.put(
-                        species,
-                        speciesRegistry.get(species) + 1
+                    species,
+                    speciesRegistry.get(species) + 1
                 );
 
             } else {
@@ -45,43 +45,51 @@ public class FieldRegistry {
 
         for (String species : speciesRegistry.keySet()) {
             System.out.println(
-                    species + ": " + speciesRegistry.get(species)
+                species + ": " + speciesRegistry.get(species)
             );
-        }
-
-        String mostFrequentSpecies = "";
-        String leastFrequentSpecies = "";
-
-        int maxCount = Integer.MIN_VALUE;
-        int minCount = Integer.MAX_VALUE;
-
-        for (String species : speciesRegistry.keySet()) {
-
-            int population = speciesRegistry.get(species);
-
-            if (population > maxCount) {
-                maxCount = population;
-                mostFrequentSpecies = species;
-            }
-
-            if (population < minCount) {
-                minCount = population;
-                leastFrequentSpecies = species;
-            }
         }
 
         System.out.println("\n===== POPULATION ANALYSIS =====");
 
-        System.out.println(
+        if (speciesRegistry.isEmpty()) {
+
+            System.out.println("The registry is currently empty.");
+
+        } else {
+
+            String mostFrequentSpecies = "";
+            String leastFrequentSpecies = "";
+
+            int maxCount = Integer.MIN_VALUE;
+            int minCount = Integer.MAX_VALUE;
+
+            for (String species : speciesRegistry.keySet()) {
+
+                int population = speciesRegistry.get(species);
+
+                if (population > maxCount) {
+                    maxCount = population;
+                    mostFrequentSpecies = species;
+                }
+
+                if (population < minCount) {
+                    minCount = population;
+                    leastFrequentSpecies = species;
+                }
+            }
+
+            System.out.println(
                 "Most Frequent Species: " + mostFrequentSpecies
-                        + " (" + maxCount + ")"
-        );
+                + " (" + maxCount + ")"
+            );
 
-        System.out.println(
+            System.out.println(
                 "Least Frequent Species: " + leastFrequentSpecies
-                        + " (" + minCount + ")"
-        );
+                + " (" + minCount + ")"
+            );
+        }
 
-        System.out.println("=====================");
+        System.out.println("===============================");
     }
 }
+
