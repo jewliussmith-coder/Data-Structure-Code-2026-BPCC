@@ -4,3 +4,12 @@ Phase 1:
 In this phase, I created a Field Registry using a HashMap in Java. I added five different animal species and gave each one a population count. I also made a search feature that lets the user type in a species name and see its current population. If the species isn't in the registry, the program lets the user know.
 
 A HashMap works better for this task than an array or ArrayList because it connects each species name directly to its population. This makes it easier and faster to find specific information without searching through an entire list. It also keeps the information organized using key-value pairs.
+
+
+
+Phase 2:
+
+In this phase, I updated my Field Registry to read species names from a text file instead of manually entering them. I used a Scanner to read the file line by line and check each species. If the species was already in the HashMap, I increased its count by one. If it wasn't already there, I added it with an initial count of one.
+
+The most challenging part was figuring out how to read the text file and connect it to the HashMap. Once I understood how to check if a species already existed, updating the population counts became much easier. I also learned how to use Java's File class to read information from an external text file.
+
