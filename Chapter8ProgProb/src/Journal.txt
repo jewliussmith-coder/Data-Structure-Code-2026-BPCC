@@ -20,3 +20,8 @@ In this phase, I updated my Field Registry to analyze the population counts of e
 
 Finding the highest and lowest populations requires checking every species in the HashMap, while looking up one specific species is much faster because HashMaps use keys to retrieve information directly. This helped me understand the difference between searching through an entire collection and looking up a single value.
 
+Phase 4:
+In this phase, I tested my Field Registry program using different scenarios to make sure it worked correctly. I tested an empty sightings file, a file where every species appeared once, and a file where one species was repeated multiple times. These tests helped me understand how the program handles different inputs and updates the population counts.
+
+One thing I improved was the population analysis logic to handle an empty HashMap. This prevents the program from displaying incorrect results when there are no species in the registry. I also used AI feedback to look for possible bugs and improvements. I learned that testing different situations is important because a program might work normally but still have problems with unexpected inputs.
+
