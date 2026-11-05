@@ -1,0 +1,8 @@
+Journal
+How does the PriorityQueue know which company is the smallest?
+
+The PriorityQueue knows which company is smallest because the Company class implements Comparable. The compareTo method tells Java to compare companies based on their size. Since PriorityQueue is a min-heap by default, the company with the smallest size automatically gets placed at the front of the queue.
+
+What would we change if we wanted to merge the largest companies first?
+
+We would reverse the comparison in the compareTo method. Instead of comparing this.size to other.size, we would compare other.size to this.size. This would make the PriorityQueue prioritize the largest companies first.
