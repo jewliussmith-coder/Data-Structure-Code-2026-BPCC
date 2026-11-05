@@ -25,3 +25,14 @@ If we forgot to check the queue size, the program could try to remove two compan
 
 How does this relate to the concept of Underflow?
 This relates to underflow because underflow happens when we try to remove an element from a data structure that doesn't have enough elements available. Checking the queue size before removing companies helps prevent this problem.
+
+
+Phase 4: 
+What bugs or unexpected behaviors did you catch while testing your program?
+
+One unexpected behavior I noticed was that a company could already be above the 500,000-unit threshold before the simulation started, but the program wouldn't recognize it until after a merger. I also tested smaller company sizes to make sure the merger process continued correctly.
+
+If you asked an AI tutor for feedback, what did it suggest, and did you choose to make any changes? Explain your reasoning.
+
+The AI didn't suggest any major changes to my code, so I decided to keep it as it was. After testing the different scenarios, I felt that the program was working as intended and met the assignment requirements.
+
