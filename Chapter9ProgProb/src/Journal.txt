@@ -16,4 +16,12 @@ A PriorityQueue is more efficient because it automatically prioritizes the small
 
 What is the time complexity of adding an item to a priority queue versus sorting a whole list?
 
+Phase 3:
 Adding an item to a PriorityQueue takes O(log n) time, while sorting an entire list takes O(n log n) time. This means adding companies to a PriorityQueue is generally faster than repeatedly sorting the entire list.
+
+What would happen to your code if you forgot to check the queue size before calling poll() twice?
+
+If we forgot to check the queue size, the program could try to remove two companies when there aren't enough left. This could cause poll() to return null, which would lead to a NullPointerException when trying to access the company's size or name.
+
+How does this relate to the concept of Underflow?
+This relates to underflow because underflow happens when we try to remove an element from a data structure that doesn't have enough elements available. Checking the queue size before removing companies helps prevent this problem.
