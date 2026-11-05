@@ -14,19 +14,31 @@ public class Main {
         market.add(new Company("Umbrella Corporation", 45000));
         market.add(new Company("Wonka Industries", 1000));
         market.add(new Company("Aperture Science", 8000));
-        market.add(new Company("Oscorp", 20000));
+        market.add(new Company("Oscorp TWO", 20000));
 
-        System.out.println("Company Market:");
+        System.out.println("Starting Company Market:");
         System.out.println(market);
 
-        Company smallest = market.poll();
+        while (market.size() > 1) {
 
-        System.out.println("\nSmallest Company:");
-        System.out.println(smallest);
+            Company companyA = market.poll();
+            Company companyB = market.poll();
 
-        market.add(smallest);
+            int newSize = (int) ((companyA.getSize() + companyB.getSize()) * 1.1);
 
-        System.out.println("\nCompany added back to the queue.");
-        System.out.println("Queue size: " + market.size());
+            String newName = companyA.getName() + "-" + companyB.getName();
+
+            Company mergedCompany = new Company(newName, newSize);
+
+            System.out.println("Merger: " + companyA.getName()
+                    + " and " + companyB.getName()
+                    + " have merged into " + mergedCompany.getName()
+                    + " with size " + mergedCompany.getSize() + "!");
+
+            market.add(mergedCompany);
+        }
+
+        System.out.println("Final Company:");
+        System.out.println(market.poll());
     }
 }
