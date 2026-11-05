@@ -1,4 +1,5 @@
 Journal
+Phase 1
 How does the PriorityQueue know which company is the smallest?
 
 The PriorityQueue knows which company is smallest because the Company class implements Comparable. The compareTo method tells Java to compare companies based on their size. Since PriorityQueue is a min-heap by default, the company with the smallest size automatically gets placed at the front of the queue.
@@ -6,3 +7,13 @@ The PriorityQueue knows which company is smallest because the Company class impl
 What would we change if we wanted to merge the largest companies first?
 
 We would reverse the comparison in the compareTo method. Instead of comparing this.size to other.size, we would compare other.size to this.size. This would make the PriorityQueue prioritize the largest companies first.
+
+
+Phase 2
+Why is a PriorityQueue more efficient for this process than using a standard ArrayList and sorting it inside the loop?
+
+A PriorityQueue is more efficient because it automatically prioritizes the smallest companies instead of making us sort through everything ourselves after each merger. This saves time and makes the merging process easier to manage. With an ArrayList, we would have to do more work to find the two smallest companies every time we merge.
+
+What is the time complexity of adding an item to a priority queue versus sorting a whole list?
+
+Adding an item to a PriorityQueue takes O(log n) time, while sorting an entire list takes O(n log n) time. This means adding companies to a PriorityQueue is generally faster than repeatedly sorting the entire list.
