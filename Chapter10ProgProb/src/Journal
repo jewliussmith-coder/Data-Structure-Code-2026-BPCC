@@ -13,3 +13,9 @@ A Queue makes BFS explore one level at a time because it follows First In, First
 This means the cities added first are checked first, so it explores nearby connections before moving farther away.
 This helps the algorithm find whether a path exists without skipping closer connections.
 
+Phase 3:
+In terms of the data structures used, what is the fundamental difference between the way BFS and DFS traverse the graph?
+
+BFS uses a Queue (FIFO), meaning it explores nearby cities first before moving farther away.
+DFS uses a Stack (LIFO), meaning it follows one path as far as possible before backtracking. 
+Both can check if cities are connected, but they explore the graph in different orders.
