@@ -1,76 +1,68 @@
-
 import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class WeightedGraph<T> {
+    private ArrayList<T> vertices;
+    private int[][] matrix;
 
-    private List<T> vertices;
-    private int[][] adjacencyMatrix;
-
-    public WeightedGraph(int capacity) {
+    public WeightedGraph(int size) {
         vertices = new ArrayList<>();
-        adjacencyMatrix = new int[capacity][capacity];
+        matrix = new int[size][size];
 
-
-        for (int i = 0; i < capacity; i++) {
-            for (int j = 0; j < capacity; j++) {
-                adjacencyMatrix[i][j] = -1;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                matrix[i][j] = -1;
             }
         }
     }
 
     public void addVertex(T vertex) {
-        if (vertices.size() >= adjacencyMatrix.length) {
-            throw new IllegalStateException("Graph is full.");
+        if (vertices.size() < matrix.length && !vertices.contains(vertex)) {
+            vertices.add(vertex);
         }
-
-        if (vertices.contains(vertex)) {
-            return;
-        }
-
-        vertices.add(vertex);
     }
-
 
     public void addEdge(T source, T destination, int weight) {
         int sourceIndex = vertices.indexOf(source);
         int destinationIndex = vertices.indexOf(destination);
 
-        if (sourceIndex == -1 || destinationIndex == -1) {
-            throw new IllegalArgumentException(
-                    "Both vertices must exist in the graph."
-            );
+        if (sourceIndex != -1 && destinationIndex != -1) {
+            matrix[sourceIndex][destinationIndex] = weight;
+            matrix[destinationIndex][sourceIndex] = weight;
         }
-
-        if (weight < 0) {
-            throw new IllegalArgumentException(
-                    "Weight must be non-negative."
-            );
-        }
-
-        adjacencyMatrix[sourceIndex][destinationIndex] = weight;
-
-
-        adjacencyMatrix[destinationIndex][sourceIndex] = weight;
     }
 
-    public void displayMatrix() {
-        System.out.print("     ");
+    public boolean breadthFirstSearch(T startVertex, T endVertex) {
+        int startIndex = vertices.indexOf(startVertex);
+        int endIndex = vertices.indexOf(endVertex);
 
-        for (T vertex : vertices) {
-            System.out.printf("%15s", vertex);
+        if (startIndex == -1 || endIndex == -1) {
+            return false;
         }
 
-        System.out.println();
+        boolean[] visited = new boolean[vertices.size()];
+        Queue<Integer> queue = new LinkedList<>();
 
-        for (int i = 0; i < vertices.size(); i++) {
-            System.out.printf("%-15s", vertices.get(i));
+        queue.add(startIndex);
+        visited[startIndex] = true;
 
-            for (int j = 0; j < vertices.size(); j++) {
-                System.out.printf("%15d", adjacencyMatrix[i][j]);
+        while (!queue.isEmpty()) {
+            int current = queue.poll();
+
+            if (current == endIndex) {
+                return true;
             }
 
-            System.out.println();
+            for (int i = 0; i < vertices.size(); i++) {
+                if (matrix[current][i] != -1 && !visited[i]) {
+                    visited[i] = true;
+                    queue.add(i);
+                }
+            }
         }
+
+        return false;
     }
 }
+
