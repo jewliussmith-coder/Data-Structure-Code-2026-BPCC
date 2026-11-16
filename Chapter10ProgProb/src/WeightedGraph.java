@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class WeightedGraph<T> {
     private ArrayList<T> vertices;
@@ -64,5 +65,36 @@ public class WeightedGraph<T> {
 
         return false;
     }
-}
 
+    public boolean depthFirstSearch(T startVertex, T endVertex) {
+        int startIndex = vertices.indexOf(startVertex);
+        int endIndex = vertices.indexOf(endVertex);
+
+        if (startIndex == -1 || endIndex == -1) {
+            return false;
+        }
+
+        boolean[] visited = new boolean[vertices.size()];
+        Stack<Integer> stack = new Stack<>();
+
+        stack.push(startIndex);
+        visited[startIndex] = true;
+
+        while (!stack.isEmpty()) {
+            int current = stack.pop();
+
+            if (current == endIndex) {
+                return true;
+            }
+
+            for (int i = 0; i < vertices.size(); i++) {
+                if (matrix[current][i] != -1 && !visited[i]) {
+                    visited[i] = true;
+                    stack.push(i);
+                }
+            }
+        }
+
+        return false;
+    }
+}
