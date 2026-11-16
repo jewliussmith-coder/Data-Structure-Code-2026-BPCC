@@ -18,15 +18,23 @@ public class Main {
         graph.addEdge("Los Angeles", "Seattle", 1130);
         graph.addEdge("Los Angeles", "Miami", 2340);
 
-        System.out.println("New York to Los Angeles: " +
+        System.out.println("BFS - New York to Los Angeles: " +
                 graph.breadthFirstSearch("New York", "Los Angeles"));
 
-        System.out.println("New York to Miami: " +
-                graph.breadthFirstSearch("New York", "Miami"));
+        System.out.println("DFS - New York to Los Angeles: " +
+                graph.depthFirstSearch("New York", "Los Angeles"));
 
-        System.out.println("Seattle to Miami: " +
-                graph.breadthFirstSearch("Seattle", "Miami"));
+        System.out.println("BFS - New York to Boston: " +
+                graph.breadthFirstSearch("New York", "Boston"));
+
+        System.out.println("DFS - New York to Boston: " +
+                graph.depthFirstSearch("New York", "Boston"));
+
     }
+
+
+
+}
 
 
 
