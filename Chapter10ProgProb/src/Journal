@@ -5,3 +5,11 @@ Why is an Adjacency Matrix a suitable choice for a small, fixed number of delive
 An adjacency matrix works well because there are only a small number of cities, so it is easy to store and check connections.
 It also makes finding the fuel cost between two cities quick. An adjacency list could save more space,
 but a matrix is simpler for a small network where the number of cities isn't changing much.
+
+Phase 2:
+Describe how the use of a Queue allows the BFS algorithm to explore the network "level-by-level.”
+
+A Queue makes BFS explore one level at a time because it follows First In, First Out (FIFO).
+This means the cities added first are checked first, so it explores nearby connections before moving farther away.
+This helps the algorithm find whether a path exists without skipping closer connections.
+
