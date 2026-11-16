@@ -1,0 +1,7 @@
+Phase 1:
+Journal Prompt
+Why is an Adjacency Matrix a suitable choice for a small, fixed number of delivery hubs compared to an Adjacency List?
+
+An adjacency matrix works well because there are only a small number of cities, so it is easy to store and check connections.
+It also makes finding the fuel cost between two cities quick. An adjacency list could save more space,
+but a matrix is simpler for a small network where the number of cities isn't changing much.
