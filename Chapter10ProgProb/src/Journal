@@ -17,5 +17,18 @@ Phase 3:
 In terms of the data structures used, what is the fundamental difference between the way BFS and DFS traverse the graph?
 
 BFS uses a Queue (FIFO), meaning it explores nearby cities first before moving farther away.
-DFS uses a Stack (LIFO), meaning it follows one path as far as possible before backtracking. 
+DFS uses a Stack (LIFO), meaning it follows one path as far as possible before backtracking.
 Both can check if cities are connected, but they explore the graph in different orders.
+
+Phase 4:
+
+Quick AI review
+No code changes are necessary for this phase.
+The existing BFS and DFS implementations use visited arrays to prevent repeatedly exploring the same cities.
+
+Journal Prompt
+What bugs or unexpected behaviors did you catch while testing your program? If you used an AI tutor, what did it suggest, and did you decide to make any changes? Explain your reasoning.
+
+I tested both BFS and DFS with different cities and connection scenarios. 
+Both algorithms returned the expected results, including when a city was unreachable. 
+I didn't find any major bugs, so no code changes were needed.
