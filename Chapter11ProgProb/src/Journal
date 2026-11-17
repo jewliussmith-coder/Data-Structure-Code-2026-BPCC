@@ -1,0 +1,9 @@
+Journal 
+Phase 1:
+
+The swap() method will be useful in future phases because sorting algorithms need to move numbers around to put them in the correct order.
+Instead of writing the same swapping code over and over, we can just call this method whenever we need to switch two numbers. 
+This will make the sorting algorithms easier to write and understand.
+
+
+
