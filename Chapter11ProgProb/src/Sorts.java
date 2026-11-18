@@ -40,4 +40,23 @@ public class Sorts {
 
         System.out.println();
     }
+
+    public static int minIndex(int[] values, int start, int end) {
+        int min = start;
+
+        for (int i = start + 1; i <= end; i++) {
+            if (values[i] < values[min]) {
+                min = i;
+            }
+        }
+
+        return min;
+    }
+
+    public static void selectionSort(int[] values) {
+        for (int i = 0; i < values.length - 1; i++) {
+            int min = minIndex(values, i, values.length - 1);
+            swap(values, i, min);
+        }
+    }
 }
