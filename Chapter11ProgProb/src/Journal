@@ -5,5 +5,11 @@ The swap() method will be useful in future phases because sorting algorithms nee
 Instead of writing the same swapping code over and over, we can just call this method whenever we need to switch two numbers. 
 This will make the sorting algorithms easier to write and understand.
 
+Phase 2:
+
+No, the number of comparisons stays the same even if the array is already sorted.
+Selection Sort still has to check every number in the unsorted section to make sure it has found the smallest one. 
+This means it still takes O(N²) time regardless of whether the array starts sorted or not. 
+
 
 
