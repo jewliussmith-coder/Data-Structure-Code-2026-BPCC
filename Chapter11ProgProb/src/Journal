@@ -11,5 +11,13 @@ No, the number of comparisons stays the same even if the array is already sorted
 Selection Sort still has to check every number in the unsorted section to make sure it has found the smallest one. 
 This means it still takes O(N²) time regardless of whether the array starts sorted or not. 
 
+Phase 3:
+
+The main drawback of Merge Sort is that it requires extra memory for its temporary array. 
+\Selection Sort works directly with the original array and does not need much additional space.
+If a computer has very limited RAM, Merge Sort could use memory that is needed for other tasks. 
+Even though Merge Sort is faster with larger arrays, Selection Sort may be a better choice when memory is more important.
+
+
 
 
