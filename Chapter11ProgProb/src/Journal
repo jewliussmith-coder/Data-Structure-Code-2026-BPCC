@@ -18,6 +18,10 @@ The main drawback of Merge Sort is that it requires extra memory for its tempora
 If a computer has very limited RAM, Merge Sort could use memory that is needed for other tasks. 
 Even though Merge Sort is faster with larger arrays, Selection Sort may be a better choice when memory is more important.
 
-
+Selection Sort became much slower as the array size increased, which is what I expected from O(N²).
+Merge Sort handled the larger arrays much faster because it uses O(N log N).
+Measuring time is not always consistent because computer hardware and other running programs can affect the results. 
+During testing, I checked already sorted arrays, reverse-sorted arrays, and arrays with identical values. Both algorithms passed these tests. 
+The AI review helped me look for possible edge cases and review my code, but I did not make any code changes.
 
 
